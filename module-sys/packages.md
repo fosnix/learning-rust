@@ -1,0 +1,2 @@
+- Even though this Cargo.toml file do not have any crates defined, the default 'main.rs' file is considered as a binary-crate and 'lib.rs' file is considered as a 'library-crate'.
+- A package can contain as many binary crates as you like, but at most only one library crate. A package must contain at least one crate, whether that’s a library or binary crate.
