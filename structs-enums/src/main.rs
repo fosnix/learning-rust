@@ -7,6 +7,14 @@ struct User {
     sign_in_count: u64,
 }
 
+#[derive(Debug)]
+// Defining a enum :
+enum IPAddrType {
+    V4(String),
+    V6(String),
+}
+
+
 fn main() {
 
     // Immutable 'User' instance or object 'u1'!
@@ -32,6 +40,10 @@ fn main() {
     println!("u2 : {:?}", u2);
     println!("white_col : {:?}", white_col);
     println!("sun : {:?}", sun);
+
+    let localhost = IPAddrType::V6(String::from("127.0.0.1"));
+    println!("localhost : {:?}", localhost);
+
 }
 
 #[derive(Debug)]
