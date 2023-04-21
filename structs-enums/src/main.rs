@@ -14,6 +14,28 @@ enum IPAddrType {
     V6(String),
 }
 
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+// Method Syntax!
+impl Rectangle {
+    fn area(&self) -> u32 { // OR (&self)
+        self.width * self.height
+    }
+}
+
+// Associated function
+impl Rectangle {
+    fn sqaure(size: u32) -> Self {
+        Self { 
+            width: size, 
+            height: size
+        }
+    }
+}
 
 fn main() {
 
@@ -43,6 +65,17 @@ fn main() {
 
     let localhost = IPAddrType::V6(String::from("127.0.0.1"));
     println!("localhost : {:?}", localhost);
+
+    let rec1 = Rectangle {
+        width : 10,
+        height : 20,
+    };
+
+    let square = Rectangle::sqaure(10);
+
+    println!("{:?}", rec1);
+    println!("Area of rec1 : {}", rec1.area());
+    println!("Area of square : {}", square.area());
 
 }
 
