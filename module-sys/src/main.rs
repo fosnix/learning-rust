@@ -1,5 +1,8 @@
 // This is a binary-crate in the package 'module-sys'
 
+use module_sys::say_hello;
+
 fn main() {
-    println!("Hello, World");
+    say_hello::hello();
+    say_hello::hello_world();
 }   
