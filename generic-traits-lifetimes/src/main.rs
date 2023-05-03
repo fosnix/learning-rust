@@ -1,5 +1,6 @@
 mod generic;
 mod traits;
+mod lifetimes;
 
 use generic::Point;
 use generic::max;
@@ -10,6 +11,11 @@ use traits::Summary;
 use traits::notify;
 use traits::returns_summarizeable;
 use traits::Pair;
+
+use lifetimes::longest;
+use lifetimes::return_ownership;
+use lifetimes::S;
+use lifetimes::longest_with_an_announcements;
 
 fn main() {
 
@@ -58,7 +64,23 @@ fn main() {
     let p1 = Pair::new(12.3, 33.6);
     p1.cmp_display(); // Because f64 impl Display and PartialOrd traits!
 
-    let p2 = Pair::new(tw, tw1);
+    let _p2 = Pair::new(tw, tw1);
     // p2.cmp_display(); // Error : Because 'Tweet' does not impl Display and PartialOrd traits!
     
+    let s1 = String::from("abcd");
+    let result: &str;
+
+    {
+        let s2 = String::from("xyz");
+        result = longest(s1.as_str(), s2.as_str());
+        println!("{}", result);
+    }
+    
+    let s3 = return_ownership();
+
+    println!("{}", s3);
+    println!("{}", S);
+
+    let s4 = longest_with_an_announcements(s1.as_str(), s3.as_str(), S);
+    println!("{}", s4);
 }  

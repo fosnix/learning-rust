@@ -104,3 +104,12 @@ impl<T: Display + PartialOrd> Pair<T> {
         }
     }
 }
+
+// We can also conditionally implement a trait for any type that implements another trait. 
+//Implementations of a trait on any type that satisfies the trait bounds are called 'blanket implementations'
+
+// Example ->
+
+// impl<T: Display> ToString for T {
+//     // --snip--
+// }
